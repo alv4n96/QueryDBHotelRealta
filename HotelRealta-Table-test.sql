@@ -6,12 +6,12 @@ GO
 -- Create the table in the specified schema
 CREATE TABLE Hotel.Hotels
 (
-  hotel_id INT IDENTITY(1,1) NOT NULL CONSTRAINT hotel_id_pk PRIMARY KEY, -- primary key column
-  hotel_name NVARCHAR(85) NOT NULL,
-  hotel_description NVARCHAR(500) NULL,
-  hotel_rating_star SMALLINT NULL,
-  hotel_phonenumber NVARCHAR(25) NOT NULL,
-  hotel_modified_date DATETIME NULL, 
+  hotel_id int IDENTITY(1,1) NOT NULL CONSTRAINT hotel_id_pk PRIMARY KEY, -- primary key column
+  hotel_name nvarchar(85) NOT NULL,
+  hotel_description nvarchar(500) NULL,
+  hotel_rating_star smallint NULL,
+  hotel_phonenumber nvarchar(25) NOT NULL,
+  hotel_modified_date datetime NULL, 
   -- Primary Key
   hotel_addr_id INT NOT NULL,
   -- Add this later, on production
@@ -28,9 +28,9 @@ GO
 CREATE TABLE Hotel.Hotel_Reviews
 (
   hore_id INT IDENTITY(1,1) NOT NULL CONSTRAINT hore_id_pk PRIMARY KEY, -- primary key column
-  hore_user_review NVARCHAR(125) NOT NULL,
+  hore_user_review nvarchar(125) NOT NULL,
   hore_rating BIT NOT NULL CHECK(hore_rating IN(1,2,3,4,5)) DEFAULT 5,
-  hore_created_on DATETIME NULL,
+  hore_created_on datetime NULL,
   -- FOREIGN KEY
   hore_user_id INT NOT NULL,
   hore_hotel_id INT NOT NULL,
@@ -50,18 +50,18 @@ GO
 CREATE TABLE Hotel.Facilities
 (
   faci_id INT IDENTITY(1,1) NOT NULL CONSTRAINT faci_id_pk PRIMARY KEY, -- primary key column
-  faci_description NVARCHAR(255) NULL,
+  faci_description nvarchar(255) NULL,
   faci_max_number INT NULL,
   faci_measure_unit VARCHAR(15) NULL CHECK(faci_measure_unit IN('people','beds')),
-  faci_room_number NVARCHAR(6) NOT NULL,
-  faci_startdate DATETIME NOT NULL,
-  faci_endate DATETIME NOT NULL,
+  faci_room_number nvarchar(6) NOT NULL,
+  faci_startdate datetime NOT NULL,
+  faci_endate datetime NOT NULL,
   faci_low_price MONEY NOT NULL,
   faci_high_price MONEY NOT NULL,
   faci_rate_price MONEY NOT NULL,
   faci_discount SMALLMONEY NULL,
   faci_tax_rate SMALLMONEY NULL,
-  faci_modified_date DATETIME NULL,
+  faci_modified_date datetime NULL,
   --FOREIGN KEY
   faci_cagro_id INTEGER NOT NULL,
   faci_hotel_id INT NOT NULL,
@@ -82,14 +82,14 @@ GO
 CREATE TABLE Hotel.Facility_Price_History
 (
   faph_id INT IDENTITY(1,1) NOT NULL CONSTRAINT faph_id_pk PRIMARY KEY, -- primary key column
-  faph_startdate DATETIME NOT NULL,
-  faph_enddate DATETIME NOT NULL,
+  faph_startdate datetime NOT NULL,
+  faph_enddate datetime NOT NULL,
   faph_low_price MONEY NOT NULL,
   faph_high_price MONEY NOT NULL,
   faph_rate_price MONEY NOT NULL,
   faph_discount SMALLMONEY NOT NULL,
   faph_tax_rate SMALLMONEY NOT NULL,
-  faph_modified_date DATETIME,
+  faph_modified_date datetime,
   -- FOREIGN KEY
   faph_faci_id INT NOT NULL,
   faph_user_id INT NOT NULL,
@@ -108,11 +108,11 @@ GO
 CREATE TABLE Hotel.Facility_Photos
 (
   fapho_id INT IDENTITY(1,1) NOT NULL CONSTRAINT fapho_id_pk PRIMARY KEY, -- primary key column
-  fapho_thumbnail_filename NVARCHAR(50) NULL,
-  fapho_photo_filename NVARCHAR(50) NULL,
+  fapho_thumbnail_filename nvarchar(50) NULL,
+  fapho_photo_filename nvarchar(50) NULL,
   fapho_primary BIT NULL CHECK(fapho_primary IN(0,1)),
-  fapho_url NVARCHAR(255) NULL,
-  fapho_modified_date DATETIME,
+  fapho_url nvarchar(255) NULL,
+  fapho_modified_date datetime,
   -- FOREIGN KEY
   fapho_faci_id INT NOT NULL,
   CONSTRAINT fapho_faci_id_pk FOREIGN KEY (fapho_faci_id) REFERENCES Hotel.Facilities(faci_id) ON DELETE CASCADE ON UPDATE CASCADE
