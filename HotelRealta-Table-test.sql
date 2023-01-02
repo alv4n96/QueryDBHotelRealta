@@ -1,3 +1,41 @@
+USE DB_HR;
+GO
+
+DROP DATABASE IF EXISTS TempDBRealta;
+GO
+
+CREATE DATABASE TempDBRealta;
+GO
+
+-- menggunakan db hotel_realta
+USE TempDBRealta;
+GO
+
+CREATE SCHEMA Master;
+GO
+
+CREATE SCHEMA Users;
+GO
+
+CREATE SCHEMA Hotel;
+GO
+
+-- Dummy Table
+CREATE TABLE users.users (
+    user_id INT,
+	CONSTRAINT pk_user_id PRIMARY KEY(user_id)
+);
+
+CREATE TABLE Master.address (
+  addr_id int,
+   CONSTRAINT pk_addr_id PRIMARY KEY(addr_id),
+);
+
+CREATE TABLE Master.category_group (
+  cagro_id int,
+  CONSTRAINT pk_cagro_id PRIMARY KEY(cagro_id)
+);
+
 -- Create a new table called 'Hotels' in schema 'Hotel'
 -- Drop the table if it already exists
 IF OBJECT_ID('Hotel.Hotels', 'U') IS NOT NULL
@@ -15,7 +53,7 @@ CREATE TABLE Hotel.Hotels
   -- Primary Key
   hotel_addr_id INT NOT NULL,
   -- Add this later, on production
-  -- CONSTRAINT hotel_addr_id_fk FOREIGN KEY (hotel_addr_id) REFERENCES Master.Address(addr_id)
+  CONSTRAINT hotel_addr_id_fk FOREIGN KEY (hotel_addr_id) REFERENCES Master.Address(addr_id)
 );
 GO
 
@@ -35,7 +73,7 @@ CREATE TABLE Hotel.Hotel_Reviews
   hore_user_id INT NOT NULL,
   hore_hotel_id INT NOT NULL,
   -- Add this later, on production
-  -- CONSTRAINT hore_user_id_pk FOREIGN KEY (hore_user_id) REFERENCES Users.Users(user_id),
+  CONSTRAINT hore_user_id_pk FOREIGN KEY (hore_user_id) REFERENCES Users.Users(user_id),
   CONSTRAINT hore_hotel_id_fk FOREIGN KEY (hore_hotel_id) REFERENCES Hotel.Hotels(hotel_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 GO
@@ -50,6 +88,7 @@ GO
 CREATE TABLE Hotel.Facilities
 (
   faci_id INT IDENTITY(1,1) NOT NULL CONSTRAINT faci_id_pk PRIMARY KEY, -- primary key column
+  faci_name nvarchar(125) NOT NULL,
   faci_description nvarchar(255) NULL,
   faci_max_number INT NULL,
   faci_measure_unit VARCHAR(15) NULL CHECK(faci_measure_unit IN('people','beds')),
@@ -68,7 +107,7 @@ CREATE TABLE Hotel.Facilities
   -- UNIQUE ID
   CONSTRAINT faci_room_number_uq UNIQUE (faci_room_number),
   -- Add this later, on production
-  -- CONSTRAINT faci_cagro_id_fk FOREIGN KEY (faci_cagro_id) REFERENCES Master.Category_Group(cagro_id) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT faci_cagro_id_fk FOREIGN KEY (faci_cagro_id) REFERENCES Master.Category_Group(cagro_id) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT faci_hotel_id_fk FOREIGN KEY (faci_cagro_id) REFERENCES Hotel.Hotels(hotel_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 GO
@@ -95,7 +134,7 @@ CREATE TABLE Hotel.Facility_Price_History
   faph_user_id INT NOT NULL,
   -- Add this later, on production
   CONSTRAINT faph_faci_id_fk FOREIGN KEY (faph_faci_id) REFERENCES Hotel.Facilities(faci_id) ON DELETE CASCADE ON UPDATE CASCADE,
-  -- CONSTRAINT faph_user_id_fk FOREIGN KEY (faph_user_id) REFERENCES Users.Users(user_id) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT faph_user_id_fk FOREIGN KEY (faph_user_id) REFERENCES Users.Users(user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 GO
 
