@@ -90,7 +90,7 @@ VALUES
 ('Conference Room', 'Our hotel has a spacious conference room that can accommodate up to 200 people', 200, 'people', 'CON4', '2022-01-01', '2022-12-31', 200000, 300000, 250000, 25000, 10000, 5, 4) -- AULA
 ,('Metting Room', 'Meeting room Luxury with a variety of treatments and therapies', 15, 'people', 'MTG4', '2022-01-01', '2022-12-31', 100000, 150000, 125000, 25000, 10000, 3, 4) -- MEETING ROOM
 ,('Restaurant', 'Our hotel has a fine dining restaurant that serves a variety of international cuisines', 100, 'people', 'RES4','2022-01-01', '2022-12-31', 200000, 300000, 250000, 25000, 10000, 2, 4) -- RESTAURANT
-,('Deluxe Room', 'Kamar luas dengan fasilitas mewah, termasuk kamar mandi pribadi dengan shower dan bathtub', 2, 'beds', 'SPR04','2022-01-01', '2022-01-30', 200000, 250000, 230000, 25000, 10000, 1, 4)
+,('Deluxe Room', 'Kamar luas dengan fasilitas mewah, termasuk kamar mandi pribadi dengan shower dan bathtub', 2, 'beds', 'DLR04','2022-01-01', '2022-01-30', 200000, 250000, 230000, 25000, 10000, 1, 4)
 ,('Superior Room', 'Kamar standar dengan fasilitas lengkap, termasuk kamar mandi pribadi dengan shower', 2, 'beds', 'SPR04', '2022-01-01', '2022-01-30', 150000, 180000, 160000, 25000, 10000, 1, 4)
 ,('Family Room', 'Kamar untuk keluarga, dengan 2 tempat tidur single dan 1 tempat tidur double, serta fasilitas lengkap', 4, 'beds', 'FMR04','2022-01-01', '2022-01-30', 250000, 300000, 270000, 25000, 10000, 1, 4)
 ,('Standard Room', 'Kamar standar dengan fasilitas sederhana, termasuk kamar mandi pribadi dengan shower', 2, 'beds', 'STR04', '2022-01-01', '2022-01-30', 100000, 125000, 115000, 25000, 10000, 1, 4)
