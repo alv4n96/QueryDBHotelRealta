@@ -32,7 +32,12 @@ CREATE TABLE Master.address (
 );
 
 CREATE TABLE Master.category_group (
-  cagro_id int,
+  cagro_id int IDENTITY(1, 1),
+  cagro_name nvarchar(25) UNIQUE NOT NULL,
+  cagro_description nvarchar(255),
+  cagro_type nvarchar(25) NOT NULL CHECK (cagro_type IN('category', 'service', 'facility')),
+  cagro_icon nvarchar(255),
+  cagro_icon_url nvarchar(255),
   CONSTRAINT pk_cagro_id PRIMARY KEY(cagro_id)
 );
 
