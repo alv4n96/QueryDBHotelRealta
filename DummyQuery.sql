@@ -1,3 +1,7 @@
+
+USE TempDBRealta;
+GO
+
 select * from
 -- Users.users;
 -- Master.address;
