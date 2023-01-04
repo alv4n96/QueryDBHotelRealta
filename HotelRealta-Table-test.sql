@@ -31,6 +31,7 @@ CREATE TABLE Master.address (
    CONSTRAINT pk_addr_id PRIMARY KEY(addr_id),
 );
 
+--insert from master data
 CREATE TABLE Master.category_group (
   cagro_id int IDENTITY(1, 1),
   cagro_name nvarchar(25) UNIQUE NOT NULL,
