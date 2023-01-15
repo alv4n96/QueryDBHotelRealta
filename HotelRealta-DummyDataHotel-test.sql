@@ -32,24 +32,25 @@ VALUES
 ('Grand Clarion Hotel Palembang', 'Hotel bintang 4 dengan kamar yang luas dan nyaman di Palembang', 4, '+62 823 1234 5678', '2022-02-01', 2),
 ('Aston Hotel Palembang', 'Hotel bintang 5 dengan fasilitas spa dan kolam renang di Palembang', 5, '+62 823 9012 3456', '2022-03-01', 3),
 ('Hotel Santika Palembang', 'Hotel bintang 3 dengan fasilitas kelas atas di Palembang', 3, '+62 823 7890 1234', '2022-04-01', 3),
-('Ibis Hotel Palembang', 'Hotel bintang 3 dengan tarif terjangkau di Palembang', 3, '+62 823 4567 8901', '2022-05-01', 2),
+('Ibis Hotel Palembang', NULL, 3, '+62 823 4567 8901', '2022-05-01', 2),
 ('Grand Mercure Hotel Palembang', 'Hotel bintang 4 dengan fasilitas mewah di Palembang', 4, '+62 823 1234 5679', '2022-06-01', 5),
 ('Marriott Hotel Palembang', 'Hotel bintang 5 dengan fasilitas spa dan fitness center di Palembang', 5, '+62 823 9012 3457', '2022-07-01', 1),
-('Zest Hotel Palembang', 'Hotel bintang 3 dengan desain modern dan nyaman di Palembang', 3, '+62 823 7890 1235', '2022-08-01', 4),
+('Zest Hotel Palembang', 'Hotel bintang 3 dengan desain modern dan nyaman di Palembang', NULL, '+62 823 7890 1235', '2022-08-01', 4),
 ('The Westin Hotel Palembang', 'Hotel bintang 4 dengan fasilitas kelas atas di Palembang', 4, '+62 823 4567 8902', '2022-09-01', 5),
-('Swiss-Belhotel Palembang', 'Hotel bintang 5 dengan fasilitas mewah di Palembang', 5, '+62 823 1234 5680', '2022-10-01', 4)
+('Swiss-Belhotel Palembang', 'Hotel bintang 5 dengan fasilitas mewah di Palembang', 5, '+62 823 1234 5680', NULL, 4)
+
 
 INSERT INTO Hotel.Facilities (faci_name, faci_description, faci_max_number, faci_measure_unit, 
 faci_room_number, faci_startdate, faci_endate, faci_low_price, faci_high_price, faci_rate_price, 
 faci_discount, faci_tax_rate, faci_cagro_id, faci_hotel_id)
 VALUES
 ('Pool', 'Outdoor pool with sun loungers and parasols', 100, 'people', 'POOL01', '2022-01-01', '2022-12-31', 50000, 100000, 75000, 25000, 10000, 6, 1) -- POOL
-,('Restaurant', 'Fine dining restaurant serving international cuisine', 100, 'people', 'REST01', '2022-01-01', '2022-12-31', 40000, 80000, 60000, 25000, 10000, 2, 1) -- RESTAURANT
+,('Restaurant', NULL, 100, 'people', 'REST01', '2022-01-01', '2022-12-31', 40000, 80000, 60000, 25000, 10000, 2, 1) -- RESTAURANT
 ,('Gym', 'Fully equipped gym with treadmills stationary bikes, and weights', 50, 'people', 'GYM01', '2022-01-01', '2022-12-31', 30000, 50000, 40000, 25000, 10000, 4, 1) -- GYM
-,('Metting Room', 'Meeting room Luxury, and body treatments', 20, 'people', 'MTG01', '2022-01-01', '2022-12-31', 80000, 120000, 100000, 25000, 10000, 3, 1) -- MEETING
-,('Deluxe Room', 'Kamar luas dengan fasilitas mewah, termasuk kamar mandi pribadi dengan shower dan bathtub', 2,'beds', 'DLR01', '2022-01-01', '2022-01-30', 200000, 250000, 230000, 25000, 10000, 1, 1)
-,('Superior Room', 'Kamar standar dengan fasilitas lengkap, termasuk kamar mandi pribadi dengan shower', 2,'beds', 'SPR01', '2022-01-01', '2022-01-30', 150000, 180000, 160000, 25000, 10000, 1, 1)
-,('Family Room', 'Kamar untuk keluarga, dengan 2 tempat tidur single dan 1 tempat tidur double, serta fasilitas lengkap', 4,'beds', 'FMR01', '2022-01-01', '2022-01-30', 250000, 300000, 270000, 25000, 10000, 1, 1)
+,('Metting Room', 'Meeting room Luxury, and body treatments', NULL, 'people', 'MTG01', '2022-01-01', '2022-12-31', 80000, 120000, 100000, 25000, 10000, 3, 1) -- MEETING
+,('Deluxe Room', 'Kamar luas dengan fasilitas mewah, termasuk kamar mandi pribadi dengan shower dan bathtub', 2, NULL, 'DLR01', '2022-01-01', '2022-01-30', 200000, 250000, 230000, 25000, 10000, 1, 1)
+,('Superior Room', 'Kamar standar dengan fasilitas lengkap, termasuk kamar mandi pribadi dengan shower', 2,'beds', 'SPR01', '2022-01-01', '2022-01-30', 150000, 180000, 160000, NULL, 10000, 1, 1)
+,('Family Room', 'Kamar untuk keluarga, dengan 2 tempat tidur single dan 1 tempat tidur double, serta fasilitas lengkap', 4,'beds', 'FMR01', '2022-01-01', '2022-01-30', 250000, 300000, 270000, 25000, NULL, 1, 1)
 ,('Standard Room', 'Kamar standar dengan fasilitas sederhana, termasuk kamar mandi pribadi dengan shower', 2,'beds', 'STR01','2022-01-01', '2022-01-30', 100000, 125000, 115000, 25000, 10000, 1, 1)
 ,('Double Room', 'Kamar dengan 2 tempat tidur single, serta fasilitas lengkap', 2,'beds', 'DBR01', '2022-01-01', '2022-01-30', 150000, 175000, 160000, 25000, 10000, 1, 1)
 
@@ -95,5 +96,19 @@ VALUES
 ,('Family Room', 'Kamar untuk keluarga, dengan 2 tempat tidur single dan 1 tempat tidur double, serta fasilitas lengkap', 4, 'beds', 'FMR04','2022-01-01', '2022-01-30', 250000, 300000, 270000, 25000, 10000, 1, 4)
 ,('Standard Room', 'Kamar standar dengan fasilitas sederhana, termasuk kamar mandi pribadi dengan shower', 2, 'beds', 'STR04', '2022-01-01', '2022-01-30', 100000, 125000, 115000, 25000, 10000, 1, 4)
 ,('Double Room', 'Kamar dengan 2 tempat tidur single, serta fasilitas lengkap', 2, 'beds', 'DBR04', '2022-01-01', '2022-01-30', 150000, 175000, 160000, 25000, 10000, 1, 4)
+
+
+INSERT INTO Hotel.Hotel_Reviews (hore_user_review, hore_rating, hore_created_on, hore_user_id, hore_hotel_id)
+VALUES 
+('Pengalaman menginap di hotel ini sangat menyenangkan.', 5, '2022-01-01', 1, 1),
+('Saya sangat puas dengan pelayanan di hotel ini.', 4, '2022-01-02', 2, 1),
+('Kamar yang kami tempati cukup luas dan bersih, tapi ada beberapa masalah dengan AC yang berisik.', 3, '2022-01-03', 3, 1);
+
+INSERT INTO Hotel.Hotel_Reviews 
+(hore_user_review, hore_rating, hore_created_on, hore_user_id, hore_hotel_id)
+VALUES 
+('Deskripsi ini sengaja di buat untuk pengecekan nilai NULL natinya', 1, NULL, 3, 1);
+
+
 
 -- Data Fix

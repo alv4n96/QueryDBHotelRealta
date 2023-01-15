@@ -73,7 +73,7 @@ CREATE TABLE Hotel.Hotel_Reviews
 (
   hore_id INT IDENTITY(1,1) NOT NULL CONSTRAINT hore_id_pk PRIMARY KEY, -- primary key column
   hore_user_review nvarchar(125) NOT NULL,
-  hore_rating BIT NOT NULL CHECK(hore_rating IN(1,2,3,4,5)) DEFAULT 5,
+  hore_rating TINYINT NOT NULL CHECK(hore_rating IN(1,2,3,4,5)) DEFAULT 5,
   hore_created_on datetime NULL,
   -- FOREIGN KEY
   hore_user_id INT NOT NULL,
@@ -137,10 +137,8 @@ CREATE TABLE Hotel.Facility_Price_History
   faph_modified_date datetime,
   -- FOREIGN KEY
   faph_faci_id INT NOT NULL,
-  faph_user_id INT NOT NULL,
   -- Add this later, on production
   CONSTRAINT faph_faci_id_fk FOREIGN KEY (faph_faci_id) REFERENCES Hotel.Facilities(faci_id) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT faph_user_id_fk FOREIGN KEY (faph_user_id) REFERENCES Users.Users(user_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 GO
 
